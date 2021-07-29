@@ -4,11 +4,12 @@
 {% block content %}
 
     <div class="container" style="margin-top: 100px;">
-        <img src="{{profile.profile_pic.url}}" alt="Profile picture">
+        <img src="{{user.profile.profile_pic.url}}" alt="Profile picture">
         <br>
         {{user.username}}
         <br>
         {{user.email}}
+        <h3>{{user.profile.profile_pic}}</h3>
         
     </div>
 {% endblock content %}

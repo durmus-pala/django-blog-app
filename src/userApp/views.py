@@ -13,6 +13,10 @@ def home(request):
     return render(request, "userApp/home.html")
 
 
+def profile(request):
+    return render(request, "userApp/profile.html")
+
+
 def register(request):
     form_user = UserForm(request.POST or None)
     form_profile = UserProfileForm(request.POST or None)
@@ -33,6 +37,13 @@ def register(request):
         'form_user': form_user
     }
     return render(request, 'userApp/register.html', context)
+
+
+@login_required
+def user_logout(request):
+    messages.success(request, "You Logout Succesfully!")
+    logout(request)
+    return redirect('home')
 
 
 def user_login(request):

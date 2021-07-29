@@ -2,6 +2,15 @@
 
 
 {% block content %}
-    <h1>This is Home Page</h1>
+    <h1 style="margin-top: 100px; margin-left: 20px;">This is Home Page</h1>
+    {% if messages %}
+            
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+            {{message}}
+        </div>
+    {% endfor %}
+        
+{% endif %}
 {% endblock content %}
     

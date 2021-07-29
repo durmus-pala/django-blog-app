@@ -3,18 +3,17 @@
 
 
 {% block content %}
-    <div class="container">
+    <div class="container mt-5 pt-5">
         <h2>Here is a register</h2>
-        
         {% if messages %}
             
-            {% for message in messages %}
-                <div class="alert alert-{{message.tags}}">
-                    {{message}}
-                </div>
-            {% endfor %}
-                
-        {% endif %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+            {{message}}
+        </div>
+    {% endfor %}
+        
+{% endif %}
             
     <form action="" method="POST">
         {% csrf_token %}
@@ -23,6 +22,7 @@
        
         <br>
         <button class="btn btn-primary" type="submit">Register</button>
+        <br><br><br>
     </form>
     </div>
     

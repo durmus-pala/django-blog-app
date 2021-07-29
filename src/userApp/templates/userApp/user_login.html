@@ -3,7 +3,7 @@
 {% block content %}
     {% load crispy_forms_tags %}
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-6 offset-md-3 mt-5 pt-5">
             <h2>Please Login</h2>
             <form action="{% url 'userApp:user_login' %}" method="POST">
                 {% csrf_token %}

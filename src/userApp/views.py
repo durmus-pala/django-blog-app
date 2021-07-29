@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserProfileForm, UserForm, LoginForm
 from django.contrib.auth.models import User
+from .models import UserProfile
 # login imports
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -13,8 +14,16 @@ def home(request):
     return render(request, "userApp/home.html")
 
 
+@login_required
 def profile(request):
-    return render(request, "userApp/profile.html")
+    user = request.user
+    # profile = UserProfile.objects.get(user=user.id)
+    # aşağıdaki şekilde yapmak daha doğru. yukardaki şekilde arama yapınca DB'de bulamazsa app çöker
+    profile = get_object_or_404(UserProfile, user=user.id)
+    content = {
+        'profile': profile
+    }
+    return render(request, 'userApp/profile.html', content)
 
 
 def register(request):

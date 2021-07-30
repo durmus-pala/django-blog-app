@@ -1,14 +1,17 @@
 {% extends 'userApp/base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="container mt-5 pt-5">
-    <h2>Profile Form</h2>
+<div class="container pt-5" style="border: 3px solid black; margin-top: 4rem; width: 30rem;">
     
-    {% if profile.profile_pic.url %}
-    <img class="img-thumbnail" style="width: 20rem;" src="{{profile.profile_pic.url }}" alt="profile picture">
-    {% endif %}
-    <br><br>
-    <h3> <b>USERNAME:</b> {{user.username}}</h3>
+    <div style="margin:auto">
+        <h2>Profile Form</h2>
+        {% if profile.profile_pic.url %}
+        <img class="img-thumbnail" style="width: 20rem;" src="{{profile.profile_pic.url }}" alt="profile picture">
+        {% endif %}
+        <br><br>
+        <h3> <b>USERNAME:</b> {{user.username}}</h3>
+    </div>
+   
 </div>
 
 {% endblock content %}

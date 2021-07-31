@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from userApp.views import home
 from django.conf.urls.static import static
 from django.conf import settings
+from blogApp.views import PostListView
 
 urlpatterns = [
+    path('', PostListView.as_view(), name='home'),
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
     path('user/', include('userApp.urls')),
-    # path('blogs/', include('blogApp.urls')),
+    path('blog/', include('blogApp.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

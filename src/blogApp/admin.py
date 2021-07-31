@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blogApp.models import Blog
+from blogApp.models import Post
 
-admin.site.register(Blog)
+admin.site.register(Post)
 # Register your models here.

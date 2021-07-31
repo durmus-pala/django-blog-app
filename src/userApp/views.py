@@ -10,10 +10,6 @@ from django.contrib import messages
 # Create your views here.
 
 
-def home(request):
-    return render(request, "userApp/home.html")
-
-
 @login_required
 def profile(request):
     user = request.user

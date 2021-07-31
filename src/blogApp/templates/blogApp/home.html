@@ -1,0 +1,21 @@
+{% extends 'blogApp/base.html' %}
+
+
+{% block content %}
+
+{% for post in posts %}
+<div style="display: inline-block; height: 10rem;">
+  <div class="card" style="width: 11rem; margin-top: 5rem; margin-left: 3rem;">
+    <img src="{{post.blog_pic.url}}" class="card-img-top" alt="post-image">
+    <div class="card-body" style="height: 10rem; overflow-y: scroll;">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p style="font-size: 0.5rem;">Last Updated by {{post.author}} at {{post.last_updated}}</p>
+      <p class="card-text">{{post.desc}}</p>
+      <a href="{% url 'blogApp:post-detail' post.id %}" class="btn btn-primary m-3">See Details</a>   
+    </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock content %}
+    
